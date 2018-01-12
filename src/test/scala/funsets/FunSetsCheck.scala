@@ -19,4 +19,9 @@ class FunSetsCheck extends PropSpec with Checkers with Matchers{
     val gt1000:Set =  _ > 1000
     check(Prop.forAll(gen){(a) => FunSets.forall(gt1000, a)})
   }
+
+  property("map"){
+    val validRange = Gen.choose(-1000, 1000)
+    check(Prop.forAll(validRange){(anInt) => contains(map(singletonSet(anInt), _ / 2), anInt / 2)})
+  }
 }

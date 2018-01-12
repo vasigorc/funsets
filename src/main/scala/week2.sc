@@ -24,4 +24,6 @@ object  FunSetsTests{
   forall(x=> x< bound && x> -bound, singletonSet(5))
 
   exists(x => x > 2000, x => x >3000)
+
+  contains(map(singletonSet(1), _ + 2), 3)
 }

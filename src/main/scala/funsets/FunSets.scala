@@ -71,8 +71,13 @@ object FunSets {
   
   /**
    * Returns a set transformed by applying `f` to each element of `s`.
+    * in this "functional" set the newInt literally stands for any possible
+    * Int value. It is only to spare time that we will apply the f() to
+    * range between -bound and bound(by ultimately invoking the forall())
+    * In the end we get a copy of old s: Set for which all contained oldInts
+    * are replaced by newInts
    */
-    def map(s: Set, f: Int => Int): Set = ???
+  def map(s: Set, f: Int => Int): Set = (newInt: Int)=> exists(s, (oldInt:Int) => newInt == f(oldInt))
   
   /**
    * Displays the contents of a set
